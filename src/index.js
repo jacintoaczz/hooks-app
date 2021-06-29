@@ -8,11 +8,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { CounterWithCustomHook } from "./components/01-useState/CounterWithCustomHook";
 // import { SimpleForm } from "./components/02-useEffect/SimpleForm.jsx";
 // import { FormWithCustomHook } from "./components/02-useEffect/FormWithCustomHook.jsx";
-import { MultipleCustomHooks } from "./components/03-examples/MultipleCustomHooks.jsx";
+// import { MultipleCustomHooks } from "./components/03-examples/MultipleCustomHooks.jsx";
+import { FocusScreen } from "./components/04-useRef/FocusScreen";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MultipleCustomHooks />
+    <FocusScreen />
   </React.StrictMode>,
   document.getElementById("root")
 );
