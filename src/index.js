@@ -12,11 +12,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { FocusScreen } from "./components/04-useRef/FocusScreen";
 // import { RealRefExample } from "./components/04-useRef/RealRefExample";
 // import { Layout } from "./components/05-useLayoutEffect/Layout";
-import { Memorize } from "./components/06-useMemo/Memorize";
+// import { Memorize } from "./components/06-useMemo/Memorize";
+import { CallbackHook } from "./components/06-useMemo/CallbackHook";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Memorize />
+    <CallbackHook />
   </React.StrictMode>,
   document.getElementById("root")
 );
