@@ -13,11 +13,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { RealRefExample } from "./components/04-useRef/RealRefExample";
 // import { Layout } from "./components/05-useLayoutEffect/Layout";
 // import { Memorize } from "./components/06-useMemo/Memorize";
-import { CallbackHook } from "./components/06-useMemo/CallbackHook";
+// import { CallbackHook } from "./components/06-useMemo/CallbackHook";
+import { Padre } from "./components/07-tarea-memo/Padre.jsx";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CallbackHook />
+    <Padre />
   </React.StrictMode>,
   document.getElementById("root")
 );
