@@ -11,11 +11,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { MultipleCustomHooks } from "./components/03-examples/MultipleCustomHooks.jsx";
 // import { FocusScreen } from "./components/04-useRef/FocusScreen";
 // import { RealRefExample } from "./components/04-useRef/RealRefExample";
-import { Layout } from "./components/05-useLayoutEffect/Layout";
+// import { Layout } from "./components/05-useLayoutEffect/Layout";
+import { Memorize } from "./components/06-useMemo/Memorize";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout />
+    <Memorize />
   </React.StrictMode>,
   document.getElementById("root")
 );
