@@ -5,11 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 
 // import { HooksApp } from "./HooksApp";
 // import { CounterApp } from "./components/01-useState/CounterApp";
-import { CounterWithCustomHook } from "./components/01-useState/CounterWithCustomHook";
+// import { CounterWithCustomHook } from "./components/01-useState/CounterWithCustomHook";
+import { SimpleForm } from "./components/02-useEffect/SimpleForm.jsx";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CounterWithCustomHook />
+    <SimpleForm />
   </React.StrictMode>,
   document.getElementById("root")
 );
