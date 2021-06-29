@@ -1,0 +1,36 @@
+import React, { useState, useCallback } from "react";
+import { Navbar } from "../Navbar";
+import { Hijo } from "./Hijo.jsx";
+
+export const Padre = () => {
+  const numeros = [2, 4, 6, 8, 10];
+  const [valor, setValor] = useState(0);
+
+  // const incrementar = (num) => {
+  //   setValor(valor + num);
+  // };
+
+  const incrementar = useCallback(
+    (num) => {
+      setValor((valor) => valor + num);
+    },
+    [setValor]
+  );
+
+  return (
+    <>
+      <Navbar />
+      <main className="container">
+        <h1>Padre</h1>
+        <p> Total: {valor} </p>
+
+        <hr />
+
+        {numeros.map((n) => (
+          <Hijo key={n} numero={n} incrementar={incrementar} />
+        ))}
+        {/* <Hijo /> */}
+      </main>
+    </>
+  );
+};
