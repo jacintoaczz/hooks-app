@@ -9,11 +9,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { SimpleForm } from "./components/02-useEffect/SimpleForm.jsx";
 // import { FormWithCustomHook } from "./components/02-useEffect/FormWithCustomHook.jsx";
 // import { MultipleCustomHooks } from "./components/03-examples/MultipleCustomHooks.jsx";
-import { FocusScreen } from "./components/04-useRef/FocusScreen";
+// import { FocusScreen } from "./components/04-useRef/FocusScreen";
+import { RealRefExample } from "./components/04-useRef/RealRefExample";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FocusScreen />
+    <RealRefExample />
   </React.StrictMode>,
   document.getElementById("root")
 );
