@@ -57,6 +57,8 @@ export const FormWithCustomHook = () => {
             onChange={handleInputChange}
           />
         </div>
+
+        <button className="btn btn-success">Guardar</button>
       </form>
     </main>
   );
