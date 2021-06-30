@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = ({ title = "Hooks App" }) => {
   return (
@@ -23,19 +23,35 @@ export const Navbar = ({ title = "Hooks App" }) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="./">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  className="nav-link active"
+                  aria-current="page"
+                  to="./"
+                >
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="./login">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  className="nav-link"
+                  to="./login"
+                >
                   Login
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="./about">
+                <NavLink
+                  exact
+                  activeClassName="active"
+                  className="nav-link"
+                  to="./about"
+                >
                   About
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
