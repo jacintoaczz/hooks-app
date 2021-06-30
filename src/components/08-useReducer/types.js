@@ -1,4 +1,5 @@
 export const types = {
-    addTodo: "[Todo] Add",
-    deleteTodo: "[Todo] Delete",
+  addTodo: "[Todo list] Add",
+  deleteTodo: "[Todo list] Delete",
+  toggleTodo: "[Todo list] Toggle done",
 };
