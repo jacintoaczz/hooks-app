@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { todoReducer } from "./todoReducer";
 import { useForm } from "../../hooks/useForm";
 import { Navbar } from "../Navbar";
+import { TodosList } from "./components/TodosList";
 
 import { types } from "./types";
 import "./todo-app.css";
@@ -41,24 +42,6 @@ export const TodoApp = () => {
     resetValues();
   };
 
-  const handleDelete = (todoId) => {
-    const action = {
-      type: types.deleteTodo,
-      payload: todoId,
-    };
-
-    dispatch(action);
-  };
-
-  const handleToggle = (todoId) => {
-    const action = {
-      type: types.toggleTodo,
-      payload: todoId,
-    };
-
-    dispatch(action);
-  };
-
   return (
     <>
       <Navbar title={"Todo List"} />
@@ -68,31 +51,7 @@ export const TodoApp = () => {
 
         <div className="grid-layout">
           <div className="todos">
-            <ul className="list-group list-group-flush">
-              {todos.map((todo, idx) => {
-                return (
-                  <li key={todo.id} className="list-group-item">
-                    <p
-                      className={`${todo.done && "completed"}`}
-                      onClick={() => {
-                        handleToggle(todo.id);
-                      }}
-                    >
-                      {idx + 1}. {todo.desc}
-                    </p>
-
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => {
-                        handleDelete(todo.id);
-                      }}
-                    >
-                      Borrar
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+            <TodosList todos={todos} dispatch={dispatch} />
           </div>
 
           <div className="add-todo">
