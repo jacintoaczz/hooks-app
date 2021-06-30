@@ -14,11 +14,12 @@ import reportWebVitals from "./reportWebVitals";
 // import { Layout } from "./components/05-useLayoutEffect/Layout";
 // import { Memorize } from "./components/06-useMemo/Memorize";
 // import { CallbackHook } from "./components/06-useMemo/CallbackHook";
-import { Padre } from "./components/07-tarea-memo/Padre.jsx";
+// import { Padre } from "./components/07-tarea-memo/Padre.jsx";
+import { TodoApp } from "./components/08-useReducer/TodoApp";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Padre />
+    <TodoApp />
   </React.StrictMode>,
   document.getElementById("root")
 );
