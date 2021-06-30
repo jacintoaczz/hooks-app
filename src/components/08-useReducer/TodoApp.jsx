@@ -50,6 +50,15 @@ export const TodoApp = () => {
     dispatch(action);
   };
 
+  const handleToggle = (todoId) => {
+    const action = {
+      type: types.toggleTodo,
+      payload: todoId,
+    };
+
+    dispatch(action);
+  };
+
   return (
     <>
       <Navbar title={"Todo List"} />
@@ -63,7 +72,12 @@ export const TodoApp = () => {
               {todos.map((todo, idx) => {
                 return (
                   <li key={todo.id} className="list-group-item">
-                    <p className="text-center">
+                    <p
+                      className={`${todo.done && "completed"}`}
+                      onClick={() => {
+                        handleToggle(todo.id);
+                      }}
+                    >
                       {idx + 1}. {todo.desc}
                     </p>
 
@@ -82,7 +96,7 @@ export const TodoApp = () => {
           </div>
 
           <div className="add-todo">
-            <h4>Agregar to-do</h4>
+            <h4>Add to-do</h4>
             <hr className="divider" />
 
             <form onSubmit={handleSubmit}>
