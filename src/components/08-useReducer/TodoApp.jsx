@@ -2,109 +2,117 @@ import React, { useReducer, useEffect } from "react";
 import { todoReducer } from "./todoReducer";
 import { useForm } from "../../hooks/useForm";
 import { Navbar } from "../Navbar";
-
+import { types } from "./types";
 import "./todo-app.css";
 
 const init = () => {
-  console.log(JSON.parse(localStorage.getItem("todos")));
-  return JSON.parse(localStorage.getItem("todos")) || [];
+    console.log(JSON.parse(localStorage.getItem("todos")));
+    return JSON.parse(localStorage.getItem("todos")) || [];
 };
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, [], init);
+    const [todos, dispatch] = useReducer(todoReducer, [], init);
 
-  const [{ description }, handleInputChange, resetValues] = useForm({
-    description: "",
-  });
+    const [{ description }, handleInputChange, resetValues] = useForm({
+        description: "",
+    });
 
-  useEffect(() => {
-    console.log(todos);
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+    useEffect(() => {
+        console.log("En el ", todos);
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    if (description.trim().length <= 1) {
-      return;
-    }
+        if (description.trim().length <= 1) {
+            return;
+        }
 
-    const newTodo = {
-      id: new Date().getTime(),
-      desc: description,
-      done: false,
-    };
-    const action = {
-      type: "[Todo] Add",
-      payload: newTodo,
-    };
-
-    dispatch(action);
-    resetValues();
-  };
-
-  const handleDelete = (todoId) => {
-    const action = {
-      type: "[Todo] Delete",
-      payload: todoId,
+        const newTodo = {
+            id: new Date().getTime(),
+            desc: description,
+            done: false,
+        };
+        const action = {
+            type: types.addTodo,
+            payload: newTodo,
+        };
+        console.log(description);
+        dispatch(action);
+        resetValues();
     };
 
-    dispatch(action);
-  };
+    const handleDelete = (todoId) => {
+        const action = {
+            type: types.deleteTodo,
+            payload: todoId,
+        };
 
-  return (
-    <>
-      <Navbar title={"Todo List"} />
+        dispatch(action);
+    };
 
-      <main className="container">
-        <h2>Total to-dos: {todos.length}</h2>
+    return (
+        <>
+            <Navbar title={"Todo List"} />
 
-        <div className="grid-layout">
-          <div className="todos">
-            <ul className="list-group list-group-flush">
-              {todos.map((todo, idx) => {
-                return (
-                  <li key={todo.id} className="list-group-item">
-                    <p className="text-center">
-                      {idx + 1}. {todo.desc}
-                    </p>
+            <main className="container">
+                <h2>Total to-dos: {todos.length}</h2>
 
-                    <button
-                      className="btn btn-danger"
-                      onClick={handleDelete(todo.id)}
-                    >
-                      Borrar
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                <div className="grid-layout">
+                    <div className="todos">
+                        <ul className="list-group list-group-flush">
+                            {todos.map((todo, idx) => {
+                                return (
+                                    <li
+                                        key={todo.id}
+                                        className="list-group-item"
+                                    >
+                                        <p className="text-center">
+                                            {idx + 1}. {todo.desc}
+                                        </p>
 
-          <div className="add-todo">
-            <h4>Agregar to-do</h4>
-            <hr className="divider" />
+                                        <button
+                                            className="btn btn-danger"
+                                            onClick={() => {
+                                                handleDelete(todo.id);
+                                            }}
+                                        >
+                                            Borrar
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
 
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="description"
-                placeholder="Learn..."
-                autoComplete="off"
-                className="form-control"
-                onChange={handleInputChange}
-                value={description}
-              />
+                    <div className="add-todo">
+                        <h4>Agregar to-do</h4>
+                        <hr className="divider" />
 
-              <div className="d-grid mt-2">
-                <button className="btn btn-outline-primary" type="submit">
-                  Agregar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </main>
-    </>
-  );
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="description"
+                                placeholder="Learn..."
+                                autoComplete="off"
+                                className="form-control"
+                                onChange={handleInputChange}
+                                value={description}
+                            />
+
+                            <div className="d-grid mt-2">
+                                <button
+                                    className="btn btn-outline-primary"
+                                    type="submit"
+                                >
+                                    Agregar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </>
+    );
 };
